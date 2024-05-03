@@ -21,29 +21,23 @@ function Main(){
       
 
       <div >
-        <div >
-        <h1 >Fetched data is</h1>
+        <div className="bg-slate-300">
+        <div className="py-10 px-40 text-2xl font-medium"><h1>Laptops:</h1></div>
         <ul>
           
-            <div>
-              <table className="border-fixed border-amber-300 border border-slate-500 ..." >
-                <thead>
-                <tr><th className="border border-slate-600 ...">ProductNames</th>
-                <th className="border border-slate-600 ...">ProductPrice</th>
-                <th className="border border-slate-600 ...">Productrating</th>
-                <th className="border border-slate-600 ...">Productavilability</th>
-                </tr>
-                </thead>
-                <tbody>
+            <div className="container mx-auto sm p-4 ">
+              
                 {data.map((datas)=>(
-                <tr>
-                <td className="border border-slate-700 ..." key={datas.productName}> {datas.productName}</td>
-                  <td className="border border-slate-700 ..." key={datas.productName}>{datas.price}</td>
-                  <td className="border border-slate-700 ..." key={datas.productName}> {datas.rating}</td>
-                  <td className="border border-slate-700 ..." key={datas.productName}> {datas.availability}</td>
-                </tr>) )}
-                </tbody>
-              </table>
+                <ul>
+                <li className="container w-1/2 p-4 mx-auto text-center border-transparent my-20 rounded-xl shadow-lg shadow-black-4000/500 bg-white" key={datas.productName}> 
+                Product Name: {datas.productName}<br/>
+                Price: {datas.price}<br/>
+                Rating: {datas.rating}<br/>
+                Discount: {datas.discount}<br/>
+                Availability: {datas.availability}
+                </li>
+                </ul>) )}
+                
 
 
            
