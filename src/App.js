@@ -6,7 +6,11 @@ import Main from './Main';
 
 function App() {
   return (
-    <Main/>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Main/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
