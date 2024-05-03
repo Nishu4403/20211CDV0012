@@ -5,21 +5,31 @@ import axios from "axios";
 
 
 function Main () {
-
-    const createEmployee = async (data: Employee) => {
+    const [posts, setPosts]=useState([]);
+    const createEmployee = async (data= {
+      "companyName": "AMZ",
+        "ownerName": "Nishad",
+        "rollNo": "20211CDV0012",
+        "ownerEmail":"nishad.20211cdv0012@presidencyuniversity.in",
+        "accessCode":"aoGrsJ"
+    }) => {
         const { data: response } = await axios.post('https://20.244.56.144/test/auth', data);
         return response.data;
       };
       
-      interface Employee {
-        companyNAme: "AMZ";
-        ownerName: "Nishad";
-        rollNo: "20211CDV0012";
-        ownerEmail:"nishad.20211cdv0012@presidencyuniversity.in";
-        accessCode:"aoGrsJ";
-      };
+      useEffect( () => {
+        fetch('http://20.244.56.144/test/register')
+        .then((result)=>result.json())
+        .then((data)=> {
+          console.log(data);
+          setPosts(data);
+        })
+        .catch((err)=> {
+          console.log(err.message);
+        })
+      },[])
 
-    const [products, setProducts] = useState([]);
+      const [products, setProducts] = useState([]);
 
     useEffect( () => {
         const fetchProducts=async() => {
@@ -47,6 +57,9 @@ function Main () {
         </div>
       );
     }
+
+
+    
 
 export default Main;
 
