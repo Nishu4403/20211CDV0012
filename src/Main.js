@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 function Main(){
     const [data,setData]=useState([])
     useEffect(()=>{
@@ -34,9 +36,12 @@ function Main(){
                 Price: {datas.price}<br/>
                 Rating: {datas.rating}<br/>
                 Discount: {datas.discount}<br/>
-                Availability: {datas.availability}
+                Availability: {datas.availability}<br/>
+                <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm  text-center container my-5 sm w-20 p-4 mx-auto "><Link to={"/Details/${datas.productName}"}>Details</Link></button>
+
                 </li>
                 </ul>) )}
+                
                 
 
 
